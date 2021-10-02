@@ -19,5 +19,7 @@ from myapp import views
 
 urlpatterns = [
     path('',views.conferenceView,name='conference'),
+    path('delete/<str:id>',views.conferencedelete,name='conferencedelete'),
+    path('edit/<str:id>',views.conferenceedit,name='conferenceedit'),
     path('admin/', admin.site.urls),
 ]

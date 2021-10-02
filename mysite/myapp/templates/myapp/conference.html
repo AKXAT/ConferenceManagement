@@ -21,6 +21,7 @@
                 <th scope="col">Description</th>
                 <th scope="col">Start Date</th>
                 <th scope="col">End Date</th>
+                <th scope="col">Options</th>
             </tr>
         </th>
             {% for conferences in conference %}
@@ -29,6 +30,13 @@
                 <th scope="col">{{conferences.conference_description}}</th>
                 <th scope="col">{{conferences.conference_start_date}}</th>
                 <th scope="col">{{conferences.conference_end_date}}</th>
+                <td>
+                    <a href="{% url 'conferenceedit' conferences.conference_title %}" class="btn btn-danger btn-sm">Edit</a>
+                    <form action="{% url 'conferencedelete' conferences.conference_title %}" method="POST" class="d-inline">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                    </form>
+                </td>
             </tr>
             {% endfor %}
     </table>
