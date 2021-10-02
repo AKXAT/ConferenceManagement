@@ -1,6 +1,15 @@
 {% extends 'myapp/base.html' %}
 
 {% block content %}
+<div class="col-sm-5 container">
+    <h4 class="alert alert-info">Add a new conference</h4>
+    <form class="form-control" method="POST">
+    {% csrf_token %}
+    {{ conferenceform }}
+    <p></p>
+    <input type="submit" class="btn btn-success " value="ADD" id="add">
+</form>
+</div>
 <div class="container mt-3">
     <h4 class="alert alert-info text-center">
         Here is the list of confrences
