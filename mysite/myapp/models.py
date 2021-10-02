@@ -6,8 +6,8 @@ from django.utils import timezone
 class ConferenceModel(models.Model):
     conference_title = models.TextField(null=False,primary_key=True)
     conference_description = models.CharField(max_length=1000,null=False)
-    conference_start_date = models.DateTimeField(null=False)
-    conference_end_date = models.DateTimeField(null=False)
+    conference_start_date = models.DateField(null=False)
+    conference_end_date = models.DateField(null=False)
 
 class TalkModel(models.Model):
     talk_conference_title  = models.ForeignKey(ConferenceModel,on_delete=models.CASCADE)
@@ -20,3 +20,8 @@ class SpeakerModal(models.Model):
     speaker_talk_title = models.ForeignKey(TalkModel,on_delete=models.CASCADE)
     speaker_username = models.CharField(max_length=25,null=False)
     speaker_email = models.EmailField(max_length=100,primary_key=True,null=False)
+
+class ParticipantModel(models.Model):
+    participant_talk_title = models.ForeignKey(TalkModel,on_delete=models.CASCADE)
+    participant_username = models.CharField(max_length=25,null=False)
+    participant_email = models.EmailField(max_length=100,primary_key=True,null=False)
