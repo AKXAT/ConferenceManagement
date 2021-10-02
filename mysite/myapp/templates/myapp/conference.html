@@ -1,0 +1,27 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h4 class="alert alert-info text-center">
+        Here is the list of confrences
+    </h4>
+    <table class="table table-hover">
+        <th class="thead-dark">
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+            </tr>
+        </th>
+            {% for conferences in conference %}
+            <tr>
+                <th scope="col">{{conferences.conference_title}}</th>
+                <th scope="col">{{conferences.conference_description}}</th>
+                <th scope="col">{{conferences.conference_start_date}}</th>
+                <th scope="col">{{conferences.conference_end_date}}</th>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+{% endblock content %}
