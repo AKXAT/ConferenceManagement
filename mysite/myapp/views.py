@@ -34,3 +34,8 @@ def conferencedelete(request,id):
         conferencedelete = ConferenceModel.objects.get(pk=id)
         conferencedelete.delete()
         return HttpResponsePermanentRedirect('/')
+
+def talkView(request,id):
+    talk = ConferenceModel.objects.get(pk=id)
+    conferencetalks = talk.talkmodel_set.all()
+    return render(request,'myapp/talks.html',{'conferencetalks':conferencetalks})

@@ -26,7 +26,7 @@
         </th>
             {% for conferences in conference %}
             <tr>
-                <th scope="col">{{conferences.conference_title}}</th>
+                <th scope="col"><a href="{% url 'talks' conferences.conference_title %}">{{conferences.conference_title}}</a></th>
                 <th scope="col">{{conferences.conference_description}}</th>
                 <th scope="col">{{conferences.conference_start_date}}</th>
                 <th scope="col">{{conferences.conference_end_date}}</th>
