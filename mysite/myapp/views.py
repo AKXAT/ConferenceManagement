@@ -37,5 +37,6 @@ def conferencedelete(request,id):
 
 def talkView(request,id):
     talk = ConferenceModel.objects.get(pk=id)
+    print(talk)
     conferencetalks = talk.talkmodel_set.all()
     return render(request,'myapp/talks.html',{'conferencetalks':conferencetalks})
