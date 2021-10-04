@@ -48,3 +48,22 @@ def talkView(request,id):
     talk = ConferenceModel.objects.get(pk=id)
     conferencetalks = talk.talkmodel_set.all()
     return render(request,'myapp/talks.html',{'talkviewform':talkviewform,'conferencetalks':conferencetalks})
+
+
+def talkdelete(request,id):
+    if request.method == 'POST':
+        talkdelete = TalkModel.objects.get(pk=id)
+        talkdelete.delete()
+        return HttpResponsePermanentRedirect('/')
+
+def talkedit(request,id):
+    if request.method == 'POST':
+        uniquetalktitle = TalkModel.objects.get(pk=id)
+        requesttalkdetails = TalkForm(request.POST,instance=uniquetalktitle)
+        if requesttalkdetails.is_valid():
+            requesttalkdetails.save()
+            return HttpResponsePermanentRedirect('/')
+    else:
+        uniquetalktitle = TalkModel.objects.get(pk=id)
+        requesttalkdetails = TalkForm(instance=uniquetalktitle)
+    return render(request,'myapp/talkedit.html',{'requesttalkdetails':requesttalkdetails})
