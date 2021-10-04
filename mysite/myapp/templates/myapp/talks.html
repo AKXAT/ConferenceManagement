@@ -1,14 +1,24 @@
 {% extends 'myapp/base.html' %}
 
 {% block content %}
-<div class="col-sm-5 container">
-    <h4 class="alert alert-info">Add a new Talk</h4>
-    <form class="form-control" method="POST">
-    {% csrf_token %}
-    {{ talkviewform }}
-    <p></p>
-    <input type="submit" class="btn btn-success " value="Add" id="add">
-</form>
+<div class="text-center">
+    <button class="btn btn-success col" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add New Talk</button>
+</div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="col-sm-12 container">
+        <h4 class="alert alert-info">Add a new Talk</h4>
+        <form class="form-control" method="POST">
+        {% csrf_token %}
+        {{ talkviewform }}
+        <p></p>
+        <input type="submit" class="btn btn-success " value="Add" id="add">
+    </form>
+    </div>
+  </div>
 </div>
 <div class="container mt-3">
     <h4 class="alert alert-info text-center">

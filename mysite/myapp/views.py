@@ -67,3 +67,4 @@ def talkedit(request,id):
         uniquetalktitle = TalkModel.objects.get(pk=id)
         requesttalkdetails = TalkForm(instance=uniquetalktitle)
     return render(request,'myapp/talkedit.html',{'requesttalkdetails':requesttalkdetails})
+
