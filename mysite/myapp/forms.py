@@ -24,7 +24,7 @@ class TalkForm(forms.ModelForm):
             'talk_title' : forms.TextInput(attrs={'class':'form-control '}),
             'talk_description' : forms.TextInput(attrs={'class':'form-control '}),
             'talk_duration' : forms.TextInput(attrs={'class':'form-control '}),
-            'talk_time' : forms.TextInput(attrs={'class':'form-control '}),
+            'talk_time' : forms.TextInput(attrs={'class':'form-control','placeholder':'HH:MM:SS'}),
         }
 
 class SpeakerForm(forms.ModelForm):

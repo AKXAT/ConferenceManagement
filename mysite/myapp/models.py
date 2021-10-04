@@ -14,7 +14,7 @@ class TalkModel(models.Model):
     talk_title = models.TextField(null=False,primary_key=True)
     talk_description =  models.CharField(max_length=100,null=False)
     talk_duration = models.DecimalField(max_digits=2,decimal_places=1)
-    talk_time = models.DateTimeField(null=False)
+    talk_time = models.TimeField(null=True)
 
 class SpeakerModal(models.Model):
     speaker_talk_title = models.ForeignKey(TalkModel,on_delete=models.CASCADE)

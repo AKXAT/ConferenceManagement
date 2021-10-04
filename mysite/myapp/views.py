@@ -36,7 +36,15 @@ def conferencedelete(request,id):
         return HttpResponsePermanentRedirect('/')
 
 def talkView(request,id):
+    initial = {'talk_conference_title':id}
+    if request.method == 'POST':
+        talkviewform = TalkForm(request.POST)
+        if talkviewform.is_valid():
+            talkviewform.save()
+        
+    else:
+        talkviewform=TalkForm(initial=initial)
+
     talk = ConferenceModel.objects.get(pk=id)
-    print(talk)
     conferencetalks = talk.talkmodel_set.all()
-    return render(request,'myapp/talks.html',{'conferencetalks':conferencetalks})
+    return render(request,'myapp/talks.html',{'talkviewform':talkviewform,'conferencetalks':conferencetalks})
