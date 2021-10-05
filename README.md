@@ -25,7 +25,7 @@ This is a Django based - Conference Management System. Below are all the funtion
 
 # Here are the screenshots from the Project.
 ## Home Page
-![1](https://github.com/AKXAT/ConferenceManagement/blob/main/ScreenShots/1.png
+![1](https://github.com/AKXAT/ConferenceManagement/blob/main/ScreenShots/1.png)
 
 ## When we click on add a New conference 
 ![2](https://github.com/AKXAT/ConferenceManagement/blob/main/ScreenShots/2.png)
