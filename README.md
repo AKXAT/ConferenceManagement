@@ -23,5 +23,18 @@ This is a Django based - Conference Management System. Below are all the funtion
 5. list conferences.
 
 
-Here are the screenshots from the Project.
+# Here are the screenshots from the Project.
+## Home Page
+![1](ScreenShots\1.png)
 
+## When we click on add a New conference 
+![2](ScreenShots\2.png)
+
+## When we select one of the conference  
+![3](ScreenShots\3.png)
+
+## When we click on add a new talk 
+![4](ScreenShots\4.png)
+
+## When we select one of the Talks 
+![4](ScreenShots\5.png)
