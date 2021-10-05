@@ -2,7 +2,7 @@ from django import forms
 from django.db import models
 from django.db.models import fields
 from django.forms import widgets
-from myapp.models import ConferenceModel,TalkModel,SpeakerModal,ParticipantModel
+from myapp.models import ConferenceModel,TalkModel,MemberModel
 
 class ConferenceForm(forms.ModelForm):
     class Meta:
@@ -27,22 +27,12 @@ class TalkForm(forms.ModelForm):
             'talk_time' : forms.TextInput(attrs={'class':'form-control','placeholder':'HH:MM:SS'}),
         }
 
-class SpeakerForm(forms.ModelForm):
+class MemberForm(forms.ModelForm):
     class Meta:
-        model = SpeakerModal
-        fields = ['speaker_talk_title','speaker_username','speaker_email']
+        model = MemberModel
+        fields = ['member_type','member_name','member_email']
         widgets = {
-            'speaker_talk_title' : forms.HiddenInput, 
-            'speaker_username' : forms.TextInput(attrs={'class':'form-control '}),
-            'speaker_email' : forms.TextInput(attrs={'class':'form-control '})
-        }
-
-class ParticipantForm(forms.ModelForm):
-    class Meta:
-        model = ParticipantModel
-        fields = ['participant_talk_title' , 'participant_username' , 'participant_email']
-        widgets = {
-            'participant_talk_title' : forms.HiddenInput,
-            'participant_username' : forms.TextInput(attrs={'class':'form-control '}),
-            'participant_email' : forms.TextInput(attrs={'class':'form-control '})
+            'member_type' : forms.TextInput(attrs={'class':'form-control '}), 
+            'member_name' : forms.TextInput(attrs={'class':'form-control '}),
+            'member_email' : forms.TextInput(attrs={'class':'form-control '})
         }

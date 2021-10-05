@@ -25,5 +25,6 @@ urlpatterns = [
     path('<str:id>/talks/',views.talkView,name='talks'),
     path('delete/talk/<str:id>',views.talkdelete,name='talkdelete'),
     path('<str:id>/talks/edit',views.talkedit,name='talkedit'),
+    path('conference/talks/members/<str:id>',views.memberView,name='members'),
     path('admin/', admin.site.urls),
 ]

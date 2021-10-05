@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django import forms
 from django.shortcuts import render,HttpResponsePermanentRedirect,HttpResponse
-from myapp.forms import ConferenceForm,TalkForm,SpeakerForm,ParticipantForm
-from myapp.models import ConferenceModel,TalkModel,SpeakerModal,ParticipantModel
+from myapp.forms import ConferenceForm,TalkForm,MemberForm
+from myapp.models import ConferenceModel,TalkModel,MemberModel
 # Create your views here.
 
 def conferenceView(request):
@@ -68,3 +68,8 @@ def talkedit(request,id):
         requesttalkdetails = TalkForm(instance=uniquetalktitle)
     return render(request,'myapp/talkedit.html',{'requesttalkdetails':requesttalkdetails})
 
+def memberView(request,id):
+    member = TalkModel.objects.get(pk=id)
+    allthemembers = member.membermodel_set.all()
+    print(allthemembers)
+    return render(request,'myapp/member.html',{'allthemembers':allthemembers})

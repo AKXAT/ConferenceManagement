@@ -36,7 +36,7 @@
         </th>
             {% for talkss in conferencetalks %}
             <tr>
-                <th scope="col">{{talkss.talk_title}}</th>
+                <th scope="col"><a href="{% url 'members' talkss.talk_title %}">{{talkss.talk_title}}</a></th>
                 <th scope="col">{{talkss.talk_description}}</th>
                 <th scope="col">{{talkss.talk_duration}}</th>
                 <th scope="col">{{talkss.talk_time}}</th>
