@@ -69,7 +69,14 @@ def talkedit(request,id):
     return render(request,'myapp/talkedit.html',{'requesttalkdetails':requesttalkdetails})
 
 def memberView(request,id):
+    initial = {'member_talk_title':id}
+    if request.method == 'POST':
+        memberviewform = MemberForm(request.POST)
+        if memberviewform.is_valid():
+            memberviewform.save()
+        
+    else:
+        memberviewform=MemberForm(initial=initial)
     member = TalkModel.objects.get(pk=id)
     allthemembers = member.membermodel_set.all()
-    print(allthemembers)
-    return render(request,'myapp/member.html',{'allthemembers':allthemembers})
+    return render(request,'myapp/member.html',{'allthemembers':allthemembers,'memberviewform':memberviewform})

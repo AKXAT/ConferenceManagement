@@ -4,6 +4,10 @@ from django.db.models import fields
 from django.forms import widgets
 from myapp.models import ConferenceModel,TalkModel,MemberModel
 
+MEMBER_CHOICES = [
+    ("Speaker", "Speaker"),
+    ("Participant", "Participant"),
+]
 class ConferenceForm(forms.ModelForm):
     class Meta:
         model = ConferenceModel
@@ -28,11 +32,12 @@ class TalkForm(forms.ModelForm):
         }
 
 class MemberForm(forms.ModelForm):
+    member_type = forms.ChoiceField(choices=MEMBER_CHOICES,required=True)
     class Meta:
         model = MemberModel
-        fields = ['member_type','member_name','member_email']
+        fields = ['member_type','member_talk_title','member_name','member_email']
         widgets = {
-            'member_type' : forms.TextInput(attrs={'class':'form-control '}), 
+            'member_talk_title':forms.HiddenInput(),
             'member_name' : forms.TextInput(attrs={'class':'form-control '}),
             'member_email' : forms.TextInput(attrs={'class':'form-control '})
         }
