@@ -18,6 +18,7 @@ from django.urls import path
 from myapp import views
 
 
+
 urlpatterns = [
     path('',views.conferenceView,name='conference'),
     path('delete/<str:id>',views.conferencedelete,name='conferencedelete'),
@@ -26,5 +27,6 @@ urlpatterns = [
     path('delete/talk/<str:id>',views.talkdelete,name='talkdelete'),
     path('<str:id>/talks/edit',views.talkedit,name='talkedit'),
     path('conference/talks/members/<str:id>',views.memberView,name='members'),
+    path('member/delete/<str:id>',views.memberDelete,name='memberdelete'),
     path('admin/', admin.site.urls),
 ]

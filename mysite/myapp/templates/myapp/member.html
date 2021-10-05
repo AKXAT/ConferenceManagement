@@ -28,7 +28,10 @@
           <h3 class="card-title">{{memberss.member_name}}</h3>
           <h5 class="card-text text-info">{{memberss.member_type}}</h5>
           <p class="card-text">{{memberss.member_email}}</p>
-          <a href="#" class="btn btn-danger">Delete</a>
+          <form action="{% url 'memberdelete' memberss.member_name %}" method="POST" class="d-inline">
+            {% csrf_token %}
+            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+        </form>
       </div>
     </div>
   </div>

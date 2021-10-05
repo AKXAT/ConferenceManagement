@@ -80,3 +80,9 @@ def memberView(request,id):
     member = TalkModel.objects.get(pk=id)
     allthemembers = member.membermodel_set.all()
     return render(request,'myapp/member.html',{'allthemembers':allthemembers,'memberviewform':memberviewform})
+
+def memberDelete(request,id):
+    if request.method == 'POST':
+        deletemember = MemberModel.objects.get(pk=id)
+        deletemember.delete()
+        return HttpResponsePermanentRedirect('/')
