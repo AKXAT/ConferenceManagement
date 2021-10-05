@@ -36,5 +36,5 @@ This is a Django based - Conference Management System. Below are all the funtion
 ## When we click on add a new talk 
 ![4](ScreenShots\4.png)
 
-## When we select one of the Talks 
+## When we select one of the Talks to see members  
 ![4](ScreenShots\5.png)
