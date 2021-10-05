@@ -16,11 +16,11 @@ This is a Django based - Conference Management System. Below are all the funtion
 
 ### APIs
 
-1. To create/edit a conference
-2. To add/edit a talk
-3. To add/remove speaker/participant from a talk.
-4. To list talks in a conference
-5. To list conferences.
+1. create/edit a conference
+2. add/edit a talk
+3. add/remove speaker/participant from a talk.
+4. list talks in a conference
+5. list conferences.
 
 
 Here are the screenshots from the Project.
